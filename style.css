@@ -1,0 +1,131 @@
+.header__container {
+    background-color: #f3f3f3;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .header__title {
+    font-size: 24px;
+    color: #3f51b5; /* Azul semelhante ao da imagem */
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .header__input--search {
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50%;
+    max-width: 500px;
+  }
+  .form__container {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form__title {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .form__input-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .input__box {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  .form__button--add-task {
+    width: 100%;
+    background-color: #3f51b5;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .form__button--add-task:hover {
+    background-color: #303f9f;
+  }
+  .tasks__container {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .tasks__list {
+    padding: 10px;
+  }
+  
+  .task__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-info__container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .task-type {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .span-urgent {
+    background-color: red;
+  }
+  
+  .span-important {
+    background-color: orange;
+  }
+  
+  .span-normal {
+    background-color: green;
+  }
+  
+  .task__button--remove-task {
+    width: 20px;
+    height: 20px;
+    background: url('delete-icon.png') no-repeat center center;
+    background-size: contain;
+    border: none;
+    cursor: pointer;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
+    color: #333;
+  }
+  
+  h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+        
