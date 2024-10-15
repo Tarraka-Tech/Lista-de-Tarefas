@@ -1,4 +1,4 @@
-const tasks = JSON.parse(localStorage.getItem('tasks')) || [
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [
   { title: "Comprar comida para o gato", type: "urgente" },
   { title: "Consertar Computador", type: "importante" },
   { title: "Beber água", type: "normal" },
@@ -90,4 +90,6 @@ function addNewTask() {
 
 document.querySelector("#add-task-button").addEventListener("click", addNewTask);
 
-renderElements(tasks);
+window.addEventListener('DOMContentLoaded', () => {
+  renderElements(tasks);
+});
