@@ -1,5 +1,4 @@
-
-const tasks = [
+const tasks = JSON.parse(localStorage.getItem('tasks')) || [
   { title: "Comprar comida para o gato", type: "urgente" },
   { title: "Consertar Computador", type: "importante" },
   { title: "Beber água", type: "normal" },
@@ -12,7 +11,11 @@ const tasks = [
   { title: "Assistir a um documentário interessante", type: "normal" },
 ];
 
-function createTaskItem(task, index) {
+function saveTasksToLocalStorage() {
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+function createTaskItem(task) {
   const li = document.createElement("li");
   li.classList.add("task__item");
 
@@ -37,8 +40,13 @@ function createTaskItem(task, index) {
   button.classList.add("task__button--remove-task");
   button.innerHTML = '<i class="fas fa-trash"></i>';
 
-  button.addEventListener("click", () => {
-    removeTask(index);
+  button.addEventListener('click', () => {
+    const index = tasks.indexOf(task);
+    if (index > -1) {
+      tasks.splice(index, 1);
+      saveTasksToLocalStorage();
+      renderElements(tasks);
+    }
   });
 
   div.appendChild(span);
@@ -53,36 +61,33 @@ function renderElements(taskArray) {
   const ul = document.querySelector(".tasks__list");
   ul.innerHTML = "";
 
-  taskArray.forEach((task, index) => {
-    const taskItem = createTaskItem(task, index);
+  taskArray.forEach((task) => {
+    const taskItem = createTaskItem(task);
     ul.appendChild(taskItem);
   });
 }
 
-function addTask() {
-  const taskTitleInput = document.querySelector("#task-title");
-  const taskTypeSelect = document.querySelector("#task-type");
+function addNewTask() {
+  const titleInput = document.querySelector("#task-title");
+  const typeInput = document.querySelector("#task-type");
 
-  // Captura os valores dos inputs
-  const taskTitle = taskTitleInput.value.trim();
-  const taskType = taskTypeSelect.value;
+  const title = titleInput.value.trim();
+  const type = typeInput.value;
 
-  if (taskTitle !== "" && taskType !== "") {
-    const newTask = { title: taskTitle, type: taskType };
-    tasks.push(newTask);
-
-    renderElements(tasks);
-    taskTitleInput.value = "";
-    taskTypeSelect.value = "";
+  if (title === "" || type === "") {
+    alert("Por favor, preencha os campos corretamente.");
+    return;
   }
+
+  const newTask = { title: title, type: type };
+  tasks.push(newTask);
+  saveTasksToLocalStorage();
+  renderElements(tasks);
+
+  titleInput.value = "";
+  typeInput.value = ""; 
 }
 
-function removeTask(index) {
-  tasks.splice(index, 1);
-  renderElements(tasks);
-}
+document.querySelector("#add-task-button").addEventListener("click", addNewTask);
 
 renderElements(tasks);
-
-const addTaskButton = document.querySelector("#add-task-btn");
-addTaskButton.addEventListener("click", addTask);
