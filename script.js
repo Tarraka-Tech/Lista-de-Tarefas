@@ -1,14 +1,14 @@
 const tasks = [
-  { title: "Comprar comida para o gato", type: "Urgente" },
-  { title: "Consertar Computador", type: "Importante" },
-  { title: "Beber água", type: "Normal" },
-  { title: "Enviar relatório trimestral", type: "Importante" },
-  { title: "Fazer exercícios físicos", type: "Normal" },
-  { title: "Agendar consulta médica", type: "Urgente" },
-  { title: "Ler pelo menos um capítulo de um livro", type: "Normal" },
-  { title: "Limpar a despensa", type: "Importante" },
-  { title: "Pagar a conta de energia", type: "Urgente" },
-  { title: "Assistir a um documentário interessante", type: "Normal" },
+  { title: "Comprar comida para o gato", type: "urgente" },
+  { title: "Consertar Computador", type: "importante" },
+  { title: "Beber água", type: "normal" },
+  { title: "Enviar relatório trimestral", type: "importante" },
+  { title: "Fazer exercícios físicos", type: "normal" },
+  { title: "Agendar consulta médica", type: "urgente" },
+  { title: "Ler pelo menos um capítulo de um livro", type: "normal" },
+  { title: "Limpar a despensa", type: "importante" },
+  { title: "Pagar a conta de energia", type: "urgente" },
+  { title: "Assistir a um documentário interessante", type: "normal" },
 ];
 
 function createTaskItem(task, index) {
@@ -18,9 +18,16 @@ function createTaskItem(task, index) {
   const div = document.createElement('div');
   div.className = 'task-info__container';
 
-  const span = document.createElement('span');
-  span.className = 'task-type'; 
-  span.classList.add(`span-${task.type.toLowerCase()}`); 
+  const span = document.createElement("span");
+  span.classList.add("task-type");
+
+  if (task.type === "urgente") {
+    span.classList.add("span-urgent");
+  } else if (task.type === "importante") {
+    span.classList.add("span-important");
+  } else if (task.type === "normal") {
+    span.classList.add("span-normal");
+  }
 
   const p = document.createElement('p');
   p.textContent = task.title;
@@ -48,6 +55,7 @@ function renderElements(tasks) {
   ul.innerHTML = '';
 
   tasks.forEach((task, index) => {
+    console.log(`Adicionando tarefa: ${task.title} com tipo: ${task.type}`); // Log para depuração
     const taskItem = createTaskItem(task, index);
     ul.appendChild(taskItem);
   });
@@ -65,7 +73,7 @@ function addTask(event) {
   if (title && type) {
     const newTask = {
       title: title,
-      type: type.charAt(0).toUpperCase() + type.slice(1) // Garante que a primeira letra seja maiúscula
+      type: type.toLowerCase() // Armazena sempre como minúscula
     };
 
     tasks.push(newTask);
