@@ -1,24 +1,36 @@
 .header__container {
-    background-color: #f3f3f3;
-    padding: 20px;
-    text-align: center;
+    display: flex;
+    justify-content: center;         
+    align-items: center;
+    height: 100px;             
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+  }
+
+  .header__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;             
+    width: 100%;                     
+    max-width: 600px;                
   }
   
   .header__title {
     font-size: 24px;
-    color: #3f51b5; /* Azul semelhante ao da imagem */
+    color: #3f51b5;
     font-weight: bold;
     text-transform: uppercase;
+    margin-left: -20px;
   }
-  
+
   .header__input--search {
-    margin-top: 10px;
-    padding: 10px;
+    padding: 5px;
+    margin-right: -20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    width: 50%;
-    max-width: 500px;
+    max-width: 350px;
   }
+
   .form__container {
     background-color: #ffffff;
     padding: 20px;
@@ -44,6 +56,7 @@
   
   .input__box {
     padding: 10px;
+    background-color: #ebebeb;
     border: 1px solid #ccc;
     border-radius: 5px;
     width: 100%;
@@ -64,10 +77,15 @@
   .form__button--add-task:hover {
     background-color: #303f9f;
   }
+
   .tasks__container {
+    background-color: #ffffff;
+    padding: 20px;
     margin: 20px auto;
     width: 80%;
     max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
   .tasks__list {
@@ -80,7 +98,7 @@
     align-items: center;
     padding: 15px;
     margin-bottom: 10px;
-    background-color: #f9f9f9;
+    background-color: #f1f3f5;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
@@ -98,15 +116,15 @@
   }
   
   .span-urgent {
-    background-color: red;
+    background-color: #e40404;
   }
   
   .span-important {
-    background-color: orange;
+    background-color: #f3a703;
   }
   
   .span-normal {
-    background-color: green;
+    background-color: #028302;
   }
   
   .task__button--remove-task {
@@ -118,8 +136,8 @@
     cursor: pointer;
   }
   body {
-    font-family: Arial, sans-serif;
-    background-color: #e0e0e0;
+    font-family: 'Roboto';
+    background-color: #e2e2e2;
     color: #333;
   }
   
@@ -128,4 +146,3 @@
     color: #333;
     margin-bottom: 15px;
   }
-        
