@@ -47,6 +47,10 @@
     color: #333;
     text-align: center;
   }
+
+  .form__title_title2{
+    position: left;
+  }
   
   .form__input-container {
     display: flex;
@@ -116,15 +120,15 @@
   }
   
   .span-urgent {
-    background-color: #e40404;
+    background-color: red;
   }
   
   .span-important {
-    background-color: #f3a703;
+    background-color: yellow;
   }
   
   .span-normal {
-    background-color: #028302;
+    background-color: green;
   }
   
   .task__button--remove-task {
